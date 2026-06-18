@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Users Data from API</title>
+</head>
+<body>
+    <form>
+        <h1>UI Example</h1>
+        <button type="button" onclick="handleClick(event)" id="btn">Fetch Data From Server</button>
+    </form>
+    <ul id="ulTag"> </ul>
+
+    <script src="https://unpkg.com/axios@1.13.2/dist/axios.min.js"></script>
+    <script>
+        let ulTagHandle=document.getElementById("ulTag")
+        let btn=document.getElementById("btn")
+        let handleClick=(event)=>{
+            console.log(event)
+            // fetch("https://jsonplaceholder.typicode.com/users")
+            // .then((res)=>{
+            //     // console.log(res);
+            //     return res.json()
+            // })
+            // .then((data)=>{
+            //     console.log(data);
+            // })
+            // .catch((err)=>{
+            //     console.log(err);
+
+            // })
+            axios.get("https://jsonplaceholder.typicode.com/users")
+                .then((res)=>{
+                    console.log(res.data);
+                })
+                .catch((err)=>{
+                    console.log(err);
+                })
+
+        }
+        // let handleClick = () => {// This Function is eventHandler or eventListener
+        //     let xhr = new XMLHttpRequest()
+        //     xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
+        //     xhr.send();
+        //     // ulTagHandle.innerText="" //to refresh the data in UI
+        //     //handles sucess operation 
+        //     xhr.onload = function () {
+        //         // ulTagHandle.innerText="" //to refresh the data in UI
+        //         btn.setAttribute('disabled',true)//to refresh the data in UI
+        //         console.log(typeof xhr.responseText)
+        //         const users = JSON.parse(xhr.responseText);
+        //         for (let user of users){
+        //             let { id, name, address: { city } } = user;
+        //             let liTag=document.createElement("li")
+        //             liTag.innerHTML=`<b>${name}</b>-${city}`
+        //             ulTagHandle.appendChild(liTag)
+        //         }
+        //     };
+        // };
+    </script>
+</body>
+</html>
