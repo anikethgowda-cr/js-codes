@@ -3,7 +3,7 @@ import { GoogleGenAI } from "@google/genai";
 const text = "I am Aniketh. Can you help me learn AI and ML?";
 
 const ai = new GoogleGenAI({
-  apiKey: "AIzaSyDzLboHIF44eKMdqBLBA0FCefnismh4edk", // or put your API key here
+  apiKey: "", // or put your API key here
 });
 
 async function main() {
